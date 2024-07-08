@@ -45,17 +45,16 @@ app.post("/upload", (req, res) => {
   });
 });
 
-// 파일 목록 조회 API 추가
-app.get("/files", (req, res) => {
-  fs.readdir(uploadDir, (err, files) => {
+// 파일 목록 조회 API
+app.get("/files", (_, res) => {
+  fs.readdir(uploadDir, (err, fileNames) => {
     if (err) {
       console.error("Error reading directory:", err);
       return res.status(500).json({ error: "Internal server error" });
     }
 
-    const fileList = files.map((file) => ({
-      fileName: file,
-      fileUrl: `http://localhost:3000/${uploadDir}${file}`,
+    const fileList = fileNames.map((fileName) => ({
+      fileName,
     }));
 
     res.json({ files: fileList });
