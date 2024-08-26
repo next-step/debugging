@@ -107,7 +107,6 @@ npm run dev
 
 - Postman을 열고 `http://127.0.0.1:3000/upload` URL로 POST 요청을 설정합니다.
 - Body 탭에서 form-data를 선택하고, key를 'file', type을 'File'로 설정하여 다음 파일들을 하나씩 업로드합니다.
-  - `thumbnail.jpg`
   - `thumbnail.png`
   - `thumbnail.svg`
   - `thumbnail.pdf`
